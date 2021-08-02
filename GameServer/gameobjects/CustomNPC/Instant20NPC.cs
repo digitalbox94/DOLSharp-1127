@@ -69,15 +69,17 @@ namespace DOL.GS
                 return false;
 
 
-            if (str == "Instant" && player.Level != 50 && (player.CharacterClass.ID != (byte)eCharacterClass.Fighter || player.CharacterClass.ID != (byte)eCharacterClass.Elementalist || player.CharacterClass.ID != (byte)eCharacterClass.Acolyte || player.CharacterClass.ID != (byte)eCharacterClass.AlbionRogue || player.CharacterClass.ID != (byte)eCharacterClass.Mage ||
+            if (str == "Instant 20 level" && player.Level < 20 && (player.CharacterClass.ID != (byte)eCharacterClass.Fighter || player.CharacterClass.ID != (byte)eCharacterClass.Elementalist || player.CharacterClass.ID != (byte)eCharacterClass.Acolyte || player.CharacterClass.ID != (byte)eCharacterClass.AlbionRogue || player.CharacterClass.ID != (byte)eCharacterClass.Mage ||
                 player.CharacterClass.ID != (byte)eCharacterClass.Viking || player.CharacterClass.ID != (byte)eCharacterClass.Seer || player.CharacterClass.ID != (byte)eCharacterClass.Mystic || player.CharacterClass.ID != (byte)eCharacterClass.MidgardRogue ||
                 player.CharacterClass.ID != (byte)eCharacterClass.Guardian || player.CharacterClass.ID != (byte)eCharacterClass.Stalker || player.CharacterClass.ID != (byte)eCharacterClass.Magician || player.CharacterClass.ID != (byte)eCharacterClass.Naturalist || player.CharacterClass.ID != (byte)eCharacterClass.Animist ||
                 player.CharacterClass.ID != (byte)eCharacterClass.Necromancer || player.CharacterClass.ID != (byte)eCharacterClass.Enchanter || player.CharacterClass.ID != (byte)eCharacterClass.Spiritmaster || player.CharacterClass.ID != (byte)eCharacterClass.Bonedancer || player.CharacterClass.ID != (byte)eCharacterClass.Cabalist || player.CharacterClass.ID != (byte)eCharacterClass.Valkyrie))
             {
 
-
+                // Set player's level to 20
                 player.Out.SendMessage("Congrats on achieving level 20 !", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
                 player.Level = 20;
+                // Give 800 gold to that player to buy some stuffs 
+                player.AddMoney(8000000);
 
                 return true;
             }
